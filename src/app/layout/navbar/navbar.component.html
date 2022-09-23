@@ -1,0 +1,24 @@
+<nav id="navbar" *ngIf="isAuthenticated">
+    <div class="container">
+        <div class="brand-logo">
+          <h1>Ng <span>Movies</span></h1>
+        </div>
+
+        <ul class="nav-list" >
+          
+          <li class="nav-item">
+            <a routerLink="/categories" routerLinkActive="active" >categories</a>
+          </li>
+          
+          <li class="nav-item">
+            <a routerLink="/movies" routerLinkActive="active" >movies</a>
+          </li>
+
+          <li class="nav-item" (click)="onLogout()">
+            <a>logout</a>
+         </li>
+
+                  
+        </ul>
+    </div>
+</nav>

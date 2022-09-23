@@ -1,0 +1,159 @@
+
+nav {
+  width: 100%;
+  height: 64px;
+  background-color:rgb(var(--secondary-color)) ;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 9999999;
+}
+
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+@media (max-width: 992px) {
+  nav {
+    top: -1px;
+    height: 86px;
+  }
+  nav .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  nav {
+    top: 0px;
+    height: 85px;
+    position: fixed;
+  }
+}
+
+
+
+/* brand logo styles */
+nav .brand-logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav .brand-logo h1 {
+  margin-bottom: 0;
+  color: rgba(var(--main-color),1);
+  padding: 1px 10px;
+  border-radius: 6px;
+  font-weight: 900;
+  font-size: 32px;
+}
+
+nav .brand-logo h1 span {
+  color: #FFF;
+}
+
+@media (max-width: 992px) {
+  
+  nav .brand-logo {
+    margin-top: 10px;
+  }
+  
+  nav .brand-logo h1{
+    font-size: 25px;
+    
+  }
+}
+
+
+
+/* navlist styles */
+
+nav .nav-list {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+nav .nav-list .nav-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+@media (max-width: 992px) {
+  
+  nav .nav-list {
+    width: 100%;
+    padding: 0;
+    justify-content: space-around;
+  }
+}
+
+
+
+/* nav item links */
+
+nav .nav-list .nav-item>a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #FFF;
+  font-size: 19px;
+  text-transform: capitalize;
+  padding: 0 30px;
+  font-weight: 600;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+
+@media (max-width: 992px) {
+  nav .nav-list .nav-item>a {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+}
+
+nav .nav-list .nav-item>a:hover,
+nav .nav-list .nav-item>a.active { 
+  background-color: rgb(26 40 53);
+}
+
+nav .nav-list .nav-item>a::after,
+nav .nav-list .nav-item>a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  height: 3px;
+  width: 0;
+  background-color: rgb(var(--main-color));
+  transition: var(--main-transtion-duration);
+}
+
+
+@media (max-width: 992px) {
+  nav .nav-list .nav-item>a::after,
+  nav .nav-list .nav-item>a.active::after {
+    bottom: 0px;
+  }
+}
+
+nav .nav-list .nav-item>a:hover:after,
+nav .nav-list .nav-item>a.active::after {
+  width: 100%;
+}
+

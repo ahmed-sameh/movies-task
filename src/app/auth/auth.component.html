@@ -1,0 +1,64 @@
+
+
+<div class="header">
+  <div class="container">
+
+    <h1>Movies</h1>
+    
+    <button class="btn btn-success" (click)="isLoginMode = !isLoginMode">{{ isLoginMode ? 'Sign Up' : 'Login' }}</button>
+  </div>
+</div>
+
+<div class="auth-page">
+  
+  <div class="login-form auth-form" *ngIf="isLoginMode">
+    <h2 class="title">Login to your account</h2>
+
+    <form (ngSubmit)="onLogin(LoginForm)" #LoginForm="ngForm"> 
+      
+      <div class="input-container">
+        <input type="text" class="form-control" id="email" name="email" placeholder="Email ..." ngModel required>
+      </div>
+      
+      <div class="input-container">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required>
+      </div>
+      
+      <div class="submit-btn">
+        <button type="submit" [disabled]="LoginForm.invalid">Login</button>
+      </div>
+    </form> 
+  
+  </div>
+  
+  <div class="signup-form auth-form"  *ngIf="!isLoginMode">
+    <h2 class="title"> Sign Up </h2>
+
+    <form (ngSubmit)="onSignup(SignupForm)" #SignupForm="ngForm"> 
+      
+      <div class="input-container">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name ..." ngModel required>
+      </div>
+      
+      
+      <div class="input-container">
+        <input type="text" class="form-control" id="email" name="email" placeholder="Email ..." ngModel required>
+      </div>
+      
+      <div class="input-container">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required>
+      </div>
+      
+      <div class="submit-btn">
+        <button type="submit" [disabled]="SignupForm.invalid">Submit</button>
+      </div>
+    </form> 
+  
+  </div>
+
+</div>
+  
+
+
+  
+  
