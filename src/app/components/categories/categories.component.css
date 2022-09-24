@@ -1,0 +1,30 @@
+.title {
+  padding: 20px 0 10px;
+    font-weight: 700;
+    border-bottom: 3px solid rgb(var(--main-color));
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.cat-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.cat-item {
+  width: 25%;
+  border: 2px solid rgb(var(--main-color));
+    padding: 10px;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--main-transtion-duration);
+  }
+
+.cat-item:hover {
+  background-color: rgb(var(--main-color));
+}
