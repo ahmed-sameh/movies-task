@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Space+Mono:ital,wght@0,400;1,700&display=swap");
-
+@import "~@ng-select/ng-select/themes/default.theme.css";
 /* global styles and  varibles */
 :root {
   /*yellow color*/

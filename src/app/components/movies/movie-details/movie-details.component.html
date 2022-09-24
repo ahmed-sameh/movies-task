@@ -1,0 +1,45 @@
+<div class="background" *ngIf="showDetails"  (click)="onCloseDetails()"></div>
+<div class="movie-details" *ngIf="showDetails">
+    <button type="button" class="btn-close d-block ms-auto" aria-label="Close" (click)="onCloseDetails()"></button>
+
+    <div class="info-container">
+        <img [src]=" 'https://test-api.storexweb.com/' + movieInfo.image">
+
+        <div class="info">
+
+            <h3 class="movie-name"> {{ movieInfo.name }} </h3>
+            
+            <a href="#" class="category"> #{{ movieInfo.category?.name }} </a>
+            
+            <p class="movie-desc"> {{ movieInfo.description }} </p>
+            
+            
+            <button class="btn btn-success" (click)="showUpdateForm = true">Update</button>
+            <button class="btn btn-danger ms-3" (click)="onDeleteMovie()">Delete</button>
+        </div>
+    </div>
+
+    
+    <form (ngSubmit)="onUpdateMovie(updateForm)" #updateForm="ngForm" class="update-form" *ngIf="showUpdateForm"> 
+      
+      <div class="input-container">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Movie Name ..." [(ngModel)] = "movieInfo.name" required>
+      </div>
+    
+      <div class="input-container">
+          <input type="text" class="form-control" id="description" name="description" placeholder="Description" [(ngModel)] = "movieInfo.description" required>
+      </div>
+      
+      <div class="input-container">
+          <ng-select [(ngModel)]="movieInfo.category!.id" name="category_id" placeholder="Select Category">
+              <ng-option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</ng-option>
+          </ng-select>
+      </div>
+    
+      <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadImage($event)" ngModel name="image" required />
+        
+        <div class="submit-btn">
+          <button type="submit" [disabled]="updateForm.invalid">Update</button>
+        </div>
+      </form> 
+</div>

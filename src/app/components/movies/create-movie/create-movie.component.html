@@ -1,0 +1,31 @@
+<div class="background"  *ngIf="showCreate"></div>
+<!-- *ngIf="showDetails"  (click)="onCloseDetails()" -->
+<div class="movie-form" *ngIf="showCreate">
+    <div class="sec-header">
+        <h2 class="m-0">New Movie</h2>
+        <button type="button" class="btn-close d-block ms-auto" aria-label="Close" (click)="showCreate = false"></button>
+    </div>
+
+    <form (ngSubmit)="onCreateMovie(createForm)" #createForm="ngForm" class="create-form"> 
+      
+        <div class="input-container">
+          <input type="text" class="form-control" id="name" name="name" placeholder="Movie Name ..." ngModel required>
+        </div>
+      
+        <div class="input-container">
+            <input type="text" class="form-control" id="description" name="description" placeholder="Description" ngModel required>
+        </div>
+        
+        <div class="input-container">
+            <ng-select [(ngModel)]="selected" name="category_id" placeholder="Select Category">
+                <ng-option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</ng-option>
+            </ng-select>
+        </div>
+      
+        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadImage($event)" ngModel name="image" required />
+        
+        <div class="submit-btn">
+          <button type="submit" [disabled]="createForm.invalid">Create</button>
+        </div>
+      </form> 
+</div>

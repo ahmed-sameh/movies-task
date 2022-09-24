@@ -1,9 +1,10 @@
+<app-cat-details></app-cat-details>
 <div class="container">
     <div class="cat-sec">
-        <h2 class="title">Our Categories</h2>
         <div class="cat-container">
-            <div class="cat-item" [id]="cat.id" *ngFor="let cat of categories">
+            <div class="cat-item" [id]="cat.id" *ngFor="let cat of categories" [routerLink]="['/movies', cat.id]" routerLinkActive="active">
                 {{cat.name}}
+                <fa-icon [icon]="settingIcon" class="nav-icon" (click)="onShowDetails(cat.id!)"></fa-icon>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -9,7 +10,8 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
   declarations: [LoadingSpinnerComponent, ErrorMessageComponent],
   imports: [
     CommonModule,
+    FontAwesomeModule,
   ],
-  exports: [LoadingSpinnerComponent, ErrorMessageComponent]
+  exports: [LoadingSpinnerComponent, ErrorMessageComponent, FontAwesomeModule]
 })
 export class SharedModule { }

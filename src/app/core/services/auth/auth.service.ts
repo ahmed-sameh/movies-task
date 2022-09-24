@@ -43,6 +43,11 @@ export class AuthService {
 
   }
 
+  logout() {
+    this.Router.navigate(['/auth']);
+    localStorage.removeItem('user')
+  }
+
   isAuthenticated() {
     const user = localStorage.getItem('user');   
     return (user !== null)

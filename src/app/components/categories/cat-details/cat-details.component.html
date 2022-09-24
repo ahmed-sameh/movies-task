@@ -1,0 +1,20 @@
+<div class="background" *ngIf="showDetails"  (click)="onCloseDetails()"></div>
+<div class="cat-details" *ngIf="showDetails">
+    <button type="button" class="btn-close d-block ms-auto" aria-label="Close" (click)="onCloseDetails()"></button>
+    <h3 class="cat-name"> {{ catInfo.name }} </h3>
+
+
+    <button class="btn btn-success" (click)="showUpdateForm = true">Update</button>
+
+    
+    <form (ngSubmit)="onUpdateCat(updateForm)" #updateForm="ngForm" class="update-form" *ngIf="showUpdateForm"> 
+      
+        <div class="input-container">
+          <input type="text" class="form-control" id="name" name="name" placeholder="New Category Name ..." ngModel required>
+        </div>
+        
+        <div class="submit-btn">
+          <button type="submit" [disabled]="updateForm.invalid">Update</button>
+        </div>
+      </form> 
+</div>

@@ -52,7 +52,7 @@ export class Interceptor implements HttpInterceptor {
           if (event instanceof HttpResponse) {
             if (event.status === 200) {
               this.removeRequest(req);
-            } else if (event.status === 403) {
+            } else if (event.status === 403 || event.status === 401) {
               localStorage.removeItem('user');
               this.router.navigate(['/auth']);
               this.removeRequest(req);
@@ -67,7 +67,7 @@ export class Interceptor implements HttpInterceptor {
               localStorage.removeItem('user');
               this.router.navigate(['/auth']);
             }
-            if (err.status == 403) {
+            if (err.status == 403 || err.status == 401) {
               localStorage.removeItem('user');
               this.router.navigate(['/auth']);
               this.removeRequest(req);

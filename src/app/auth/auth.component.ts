@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../core/services/auth/auth.service';
 
 @Component({
@@ -9,9 +10,12 @@ import { AuthService } from '../core/services/auth/auth.service';
 })
 export class AuthComponent implements OnInit {
   isLoginMode = true
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    if(this.authService.isAuthenticated()) {
+      this.router.navigate(['/movies'])
+    }
   }
 
   onLogin(form: NgForm) {

@@ -18,6 +18,7 @@ export class HttpService {
       
     })
   };
+  private formData!: FormData;
 
   constructor(private http: HttpClient) {
     
@@ -36,7 +37,9 @@ export class HttpService {
     );
   }
 
-
+  postFormData(url:string, FormData:FormData) {
+    return this.http.post(`${this.api}${url}`, FormData)
+  }
 
 
 }

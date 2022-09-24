@@ -6,6 +6,7 @@ import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
   {path: "movies", component: MoviesComponent},
+  {path: "movies/:id", component: MoviesComponent},
   {path: "categories", component: CategoriesComponent},
   {path: "", redirectTo: "movies", pathMatch: 'full'},
 ]
